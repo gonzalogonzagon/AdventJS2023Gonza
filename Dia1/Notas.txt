@@ -1,0 +1,159 @@
+The document.write() method is a built-in JavaScript method that writes a specified text
+to the document. It's often used for testing purposes or simple demonstrations.
+
+In the context of your code, document.write(addNumbers(40, 2)); is used to write the
+result of the addNumbers(40, 2) function call to the document. This function call adds
+the numbers 40 and 2 together, and the result (42) is then written to the document.
+
+However, it's important to note that document.write() is generally not recommended
+for use in production code. It can lead to unexpected results, especially when used
+after the document has fully loaded. For updating the content of an already loaded
+web page, methods like innerHTML or textContent or manipulating the DOM directly
+are usually more appropriate.
+
+Here's an example of how you might use innerHTML instead:
+
+function addNumbers(a, b) {
+    var c = a + b;
+    return c;
+}
+
+var result = addNumbers(40, 2);
+document.getElementById('result').innerHTML = result;
+
+In this example, you would need an element in your HTML with the id 'result', like so:
+
+<p id="result"></p>
+
+The result of the addNumbers(40, 2) function call would then be inserted into this
+paragraph element.
+
+
+En JavaScript, var, let y const son tres formas de declarar variables, cada una con sus
+propias características.
+
+var: Es la forma más antigua de declarar variables. No es muy estricta en cuanto al
+alcance, lo que significa que las variables declaradas con var pueden ser accesibles
+fuera del bloque en el que se declararon.
+
+let: Introducido en ES6 (ES2015), let tiene un alcance de bloque, lo que significa que
+una variable declarada con let solo puede ser accesible dentro del bloque, declaración
+o expresión donde se declaró.
+
+const: También introducido en ES6, const es similar a let en que tiene un alcance de
+bloque. Sin embargo, const se utiliza para declarar variables cuyo valor no se supone
+que cambie a lo largo del programa
+
+En tu código, var se utiliza para todas las declaraciones de variables. Esto podría ser
+porque el código fue escrito antes de que se introdujeran let y const, o simplemente
+porque el autor decidió usar var por alguna razón.
+
+Si las variables en tu código no están destinadas a cambiar, podrías considerar cambiar
+var por const para hacer que tu código sea más robusto y predecible. Si las variables
+están destinadas a cambiar, pero quieres limitar su alcance al bloque en el que se
+declararon, podrías considerar usar let.
+
+In some ways, JavaScript objects are similar to structs in C or C++, but there are also
+some important differences.
+
+Similarities:
+
+Both JavaScript objects and C/C++ structs are used to group related data together.
+
+Both can contain data of different types.
+
+Differences:
+
+JavaScript objects can contain functions (known as methods), while C/C++ structs (without
+considering C++ classes) are typically used only for data.
+
+JavaScript is a dynamically-typed language, so you can add, remove, or change the type
+of properties in an object at any time. In contrast, the structure of a C/C++ struct is
+defined at compile time and cannot be changed.
+
+JavaScript objects have a prototype, which is an object from which they inherit properties.
+C/C++ structs do not have this feature.
+
+var myObject = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+
+El método pop() en JavaScript elimina el último elemento de un array y devuelve ese elemento.
+Por lo tanto, si ejecutas myArray.pop() en el array ["Bob", "John", "Mary"], se eliminará
+y devolverá "Mary".
+
+Si quieres eliminar y obtener el primer elemento del array (en este caso, "Bob"), puedes usar
+el método shift():
+
+var myArray = ["Bob", "John", "Mary"];
+document.write(myArray.shift());  // Outputs: "Bob"
+
+Si solo quieres obtener el valor de un elemento sin eliminarlo del array, puedes acceder a
+él directamente usando su índice. En JavaScript, los índices de los arrays comienzan en 0,
+por lo que "Bob" está en el índice 0 y "Mary" está en el índice 2:
+
+var myArray = ["Bob", "John", "Mary"];
+document.write(myArray[0]);  // Outputs: "Bob"
+document.write(myArray[2]);  // Outputs: "Mary"
+
+JavaScript provides a number of methods that you can use to manipulate arrays.
+Here are some of the most commonly used array methods:
+
+push(): Adds one or more elements to the end of an array and returns the new length of 
+the array.
+
+var arr = ['a', 'b', 'c'];
+arr.push('d');  // arr is now ['a', 'b', 'c', 'd']
+
+pop(): Removes the last element from an array and returns that element.
+
+var arr = ['a', 'b', 'c'];
+var last = arr.pop();  // last is 'c', arr is now ['a', 'b']
+
+shift(): Removes the first element from an array and returns that element.
+
+var arr = ['a', 'b', 'c'];
+var first = arr.shift();  // first is 'a', arr is now ['b', 'c']
+
+unshift(): Adds one or more elements to the front of an array and returns the new length
+of the array.
+
+var arr = ['b', 'c'];
+arr.unshift('a');  // arr is now ['a', 'b', 'c']
+
+slice(): Returns a shallow copy of a portion of an array.
+
+var arr = ['a', 'b', 'c', 'd', 'e'];
+var sub = arr.slice(1, 4);  // sub is ['b', 'c', 'd']
+
+splice(): Changes the contents of an array by removing, replacing, or adding elements.
+
+var arr = ['a', 'b', 'c', 'd', 'e'];
+arr.splice(2, 0, 'x');  // arr is now ['a', 'b', 'x', 'c', 'd', 'e']
+
+join(): Joins all elements of an array into a string.
+
+var arr = ['Hello', 'world'];
+var str = arr.join(' ');  // str is 'Hello world'
+
+sort(): Sorts the elements of an array in place and returns the array.
+
+var arr = ['c', 'a', 'b'];
+arr.sort();  // arr is now ['a', 'b', 'c']
+
+reverse(): Reverses the order of the elements of an array in place.
+
+var arr = ['a', 'b', 'c'];
+arr.reverse();  // arr is now ['c', 'b', 'a']
+
+forEach(), map(), filter(), reduce(), some(), every():
+These are higher-order functions that take a function as an argument and apply it to each
+element in the array in various ways.
+
+Remember, these methods do not create a new array, but modify the original array
+(except for slice(), join(), and the higher-order functions, which return a new array
+or other value).
